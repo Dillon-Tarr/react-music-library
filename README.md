@@ -1,3 +1,5 @@
+This is a second go at a music library page, this time using React and axios.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
