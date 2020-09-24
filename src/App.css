@@ -32,6 +32,10 @@ td {
 #navigation-bar{
   align-items: center;
 }
+#navigation-bar a{
+  text-decoration: none;
+  color: rgb(234, 235, 210);
+}
 #title{
   margin: 1rem 1.5rem 1rem 1rem;
 }
@@ -50,12 +54,14 @@ td {
   margin: .5rem .5rem .5rem 1.1rem;
   font-size: 1.2rem;
 }
-
+#currently-displaying-message {
+  margin: .5rem 0px .5rem 2%;
+  font-size: 1.5rem;
+}
 #results-table {
   background-color: rgb(92, 92, 92);
   padding: 0px;
   border: solid rgb(218, 218, 218) 3px;
-  position: absolute;
-  left: 5px;
-  max-width: 80%;
+  margin: 1rem 4%;
+  width: 92%;
 }
