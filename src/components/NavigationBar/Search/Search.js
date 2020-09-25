@@ -7,6 +7,6 @@ export default class Search extends Component {
         <input id="search-box" type="text" placeholder="Type here to search"></input>&nbsp;
         <button id="search-button">Search</button>
       </div>
-    );
+    )
   }
 }

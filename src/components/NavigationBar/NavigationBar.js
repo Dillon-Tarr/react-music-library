@@ -11,6 +11,6 @@ export default class NavigationBar extends Component {
         <Search />
         <ViewAllTracks />
       </div>
-    );
+    )
   }
 }

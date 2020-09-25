@@ -38,6 +38,6 @@ export default class App extends Component {
         <CurrentlyDisplayingMessage messageAfterColon={this.state.messageAfterColon}/>
         <ResultsTable currentTracks={this.state.currentTracks}/>
       </>
-    );
+    )
   };
 }

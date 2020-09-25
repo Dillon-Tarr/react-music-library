@@ -16,7 +16,7 @@ export default class ResultsTable extends Component {
     console.log(`renderRow happened.`);
     return (
       <DataRow key={`row${index + 1}`} tracks={this.props.currentTracks} trackIndex={index}/>
-    );
+    )
   }
 
   render() {

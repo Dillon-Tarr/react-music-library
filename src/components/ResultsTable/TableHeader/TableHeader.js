@@ -3,11 +3,11 @@ import React from 'react'
 export default function TableHeader() {
   return (
     <tr>
-      <td>Track Title</td>
-      <td>Album</td>
-      <td>Artist</td>
-      <td>Genre</td>
-      <td>Release Date</td>
+      <th>Track Title</th>
+      <th>Album</th>
+      <th>Artist</th>
+      <th>Genre</th>
+      <th>Release Date</th>
     </tr>
   )
 }

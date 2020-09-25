@@ -8,7 +8,7 @@ h1 {
   font-size: 2rem;
 }
 th {
-  background-color: rgb(97, 0, 0);
+  background-color: rgba(78, 23, 23, 0.75);
   padding: .5rem;
   border: solid rgb(218, 218, 218) 2px;
 }
@@ -24,10 +24,10 @@ td {
 }
 
 .odd-row td{
-  background-color: rgb(0, 90, 112);
+  background-color: rgba(0, 90, 112, 0.75);
 }
 .even-row td{
-  background-color: rgb(64, 28, 133);
+  background-color: rgba(64, 28, 133, 0.75);
 }
 #navigation-bar{
   align-items: center;
@@ -38,6 +38,7 @@ td {
 }
 #title{
   margin: 1rem 1.5rem 1rem 1rem;
+  color: rgba(231, 133, 133, 0.795);
 }
 #search{
   display: flex;
@@ -60,6 +61,7 @@ td {
 }
 #results-table {
   background-color: rgb(92, 92, 92);
+  color: rgb(241, 255, 227);
   padding: 0px;
   border: solid rgb(218, 218, 218) 3px;
   margin: 1rem 4%;
