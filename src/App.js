@@ -12,32 +12,79 @@ export default class App extends Component {
       allTracks: [],
       currentTracks: [],
       displayAllTracks: true,
-      searchText: null,
+      searchText: '',
       messageAfterColon: `All Tracks`
     };
   }
 
   componentDidMount(){
     axios.get('http://www.devcodecampmusiclibrary.com/api/music')
-  .then((response) => {
-    this.setState({
-      allTracks: response.data,
-      currentTracks: response.data
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+    .then((response) => {
+      console.log(response.data);
+      this.setState({
+        allTracks: response.data,
+        currentTracks: response.data
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
-  render(){
+  preRender(){
+    if (this.state.searchText === '') {
+      if(this.state.displayAllTracks = false){
+        this.setState({
+          displayAllTracks: true,
+          messageAfterColon: 'All Tracks'
+        });
+      }
+    }
+    else if (this.state.searchText !== ''){
+      if(this.state.displayAllTracks = true){
+        this.setState({
+          displayAllTracks: false,
+          messageAfterColon: `results for ${this.state.searchText}`
+        });
+      }
+    }
+  }
+
+  render() {
     return (
       <>
-        <NavigationBar />
+        <NavigationBar initiateSearch={this.initiateSearch}/>
         <hr/>
         <CurrentlyDisplayingMessage messageAfterColon={this.state.messageAfterColon}/>
         <ResultsTable currentTracks={this.state.currentTracks}/>
       </>
     )
-  };
+  }
+
+  initiateSearch = (searchText) => {
+    console.log('searched');
+    let newTracks = this.filterAllTracks();
+    this.setState({
+      searchText: searchText,
+      currentTracks: newTracks
+    });
+    this.preRender();
+  }
+
+  filterAllTracks = () => {
+    let dataToFilter = this.state.allTracks;
+    let filterBy = this.state.searchText;
+    let filteredData = this.myFilter(dataToFilter, filterBy);
+    return filteredData;
+  }
+
+  myFilter = (dataToFilter, filterBy) => {
+    return dataToFilter.filter((el) => {
+      return el["title"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
+      el["album"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
+      el["artist"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
+      el["genre"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
+      el["releaseDate"].toLowerCase().includes(`${filterBy}`.toLowerCase());
+    });
+  }
 }

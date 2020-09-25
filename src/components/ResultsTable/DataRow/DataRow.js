@@ -3,10 +3,10 @@ import React from 'react'
 export default function DataRow(props) {
   let oddOrEven;
   if(props.trackIndex % 2 === 0){
-    oddOrEven = 'even';
+    oddOrEven = 'odd';
   }
   else{
-    oddOrEven = 'odd';
+    oddOrEven = 'even';
   }
 
   return (

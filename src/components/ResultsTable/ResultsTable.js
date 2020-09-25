@@ -4,7 +4,7 @@ import TableHeader from './TableHeader/TableHeader'
 
 export default class ResultsTable extends Component {
   renderRows(){
-    console.log(`Rendering rows now. this.props.currentTracks=${this.props.currentTracks}`);
+    console.log(`Rendering rows now.`);
     let rows = [];
     for (let i = 0; i < this.props.currentTracks.length; i++){
       rows.push(this.renderRow(i));
@@ -13,7 +13,7 @@ export default class ResultsTable extends Component {
   }
 
   renderRow(index){
-    console.log(`renderRow happened.`);
+    console.log(`renderRow() happened.`);
     return (
       <DataRow key={`row${index + 1}`} tracks={this.props.currentTracks} trackIndex={index}/>
     )
