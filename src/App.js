@@ -31,25 +31,6 @@ export default class App extends Component {
     })
   }
 
-  preRender(){
-    if (this.state.searchText === '') {
-      if(this.state.displayAllTracks = false){
-        this.setState({
-          displayAllTracks: true,
-          messageAfterColon: 'All Tracks'
-        });
-      }
-    }
-    else if (this.state.searchText !== ''){
-      if(this.state.displayAllTracks = true){
-        this.setState({
-          displayAllTracks: false,
-          messageAfterColon: `results for ${this.state.searchText}`
-        });
-      }
-    }
-  }
-
   render() {
     return (
       <>
@@ -63,17 +44,18 @@ export default class App extends Component {
 
   initiateSearch = (searchText) => {
     console.log('searched');
-    let newTracks = this.filterAllTracks();
+    let newTracks = this.filterAllTracks(searchText);
     this.setState({
       searchText: searchText,
-      currentTracks: newTracks
+      currentTracks: newTracks,
+      displayAllTracks: false,
+      messageAfterColon: `results for "${searchText}" (${newTracks.length} results)`
     });
-    this.preRender();
   }
 
-  filterAllTracks = () => {
+  filterAllTracks = (searchText) => {
     let dataToFilter = this.state.allTracks;
-    let filterBy = this.state.searchText;
+    let filterBy = searchText;
     let filteredData = this.myFilter(dataToFilter, filterBy);
     return filteredData;
   }
