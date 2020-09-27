@@ -19,7 +19,6 @@ export default class App extends Component {
   componentDidMount(){
     axios.get('http://www.devcodecampmusiclibrary.com/api/music')
     .then((response) => {
-      console.log(response.data);
       this.setState({
         allTracks: response.data,
         currentTracks: response.data
