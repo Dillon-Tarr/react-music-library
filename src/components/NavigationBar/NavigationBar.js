@@ -8,7 +8,7 @@ export default function NavigationBar(props) {
       <div className="flex-container" id="navigation-bar">
         <Title />
         <Search initiateSearch={props.initiateSearch}/>
-        <ViewAllTracks />
+        <ViewAllTracks displayAllTracks={props.displayAllTracks}/>
       </div>
     )
 }

@@ -11,7 +11,6 @@ export default class App extends Component {
     this.state = {
       allTracks: [],
       currentTracks: [],
-      displayAllTracks: true,
       searchText: '',
       messageAfterColon: `All Tracks`
     };
@@ -34,7 +33,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <NavigationBar initiateSearch={this.initiateSearch}/>
+        <NavigationBar initiateSearch={this.initiateSearch} displayAllTracks={this.displayAllTracks}/>
         <hr/>
         <CurrentlyDisplayingMessage messageAfterColon={this.state.messageAfterColon}/>
         <ResultsTable currentTracks={this.state.currentTracks}/>
@@ -48,7 +47,6 @@ export default class App extends Component {
     this.setState({
       searchText: searchText,
       currentTracks: newTracks,
-      displayAllTracks: false,
       messageAfterColon: `results for "${searchText}" (${newTracks.length} results)`
     });
   }
@@ -67,6 +65,14 @@ export default class App extends Component {
       el["artist"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
       el["genre"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
       el["releaseDate"].toLowerCase().includes(`${filterBy}`.toLowerCase());
+    });
+  }
+
+  displayAllTracks = () => {
+    this.setState({
+      currentTracks: this.state.allTracks,
+      searchText: '',
+      messageAfterColon: `All Tracks`
     });
   }
 }

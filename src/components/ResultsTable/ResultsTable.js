@@ -1,34 +1,32 @@
-import React, { Component } from 'react'
+import React from 'react'
 import DataRow from './DataRow/DataRow'
 import TableHeader from './TableHeader/TableHeader'
 
-export default class ResultsTable extends Component {
-  renderRows(){
+export default function ResultsTable(props) {
+  return (
+    <table id="results-table">
+      <thead>
+        <TableHeader />
+      </thead>
+      <tbody>
+        {renderRows()}
+      </tbody>
+    </table>
+  )
+  
+  function renderRows(){
     console.log(`Rendering rows now.`);
     let rows = [];
-    for (let i = 0; i < this.props.currentTracks.length; i++){
-      rows.push(this.renderRow(i));
+    for (let i = 0; i < props.currentTracks.length; i++){
+      rows.push(renderRow(i));
     }
     return rows;
   }
 
-  renderRow(index){
+  function renderRow(index){
     console.log(`renderRow() happened.`);
     return (
-      <DataRow key={`row${index + 1}`} tracks={this.props.currentTracks} trackIndex={index}/>
+      <DataRow key={`row${index + 1}`} tracks={props.currentTracks} trackIndex={index}/>
     )
-  }
-
-  render() {
-    return (
-      <table id="results-table">
-        <thead>
-          <TableHeader />
-        </thead>
-        <tbody>
-          {this.renderRows()}
-        </tbody>
-      </table>
-    )
-  }
+  }  
 }
