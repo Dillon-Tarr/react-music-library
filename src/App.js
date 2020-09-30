@@ -58,12 +58,14 @@ export default class App extends Component {
   }
 
   myFilter = (dataToFilter, filterBy) => {
+    filterBy = filterBy.toLowerCase();
+
     return dataToFilter.filter((el) => {
-      return el["title"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
-      el["album"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
-      el["artist"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
-      el["genre"].toLowerCase().includes(`${filterBy}`.toLowerCase()) ||
-      el["releaseDate"].toLowerCase().includes(`${filterBy}`.toLowerCase());
+      return el["title"].toLowerCase().includes(`${filterBy}`) ||
+      el["album"].toLowerCase().includes(`${filterBy}`) ||
+      el["artist"].toLowerCase().includes(`${filterBy}`) ||
+      el["genre"].toLowerCase().includes(`${filterBy}`) ||
+      el["releaseDate"].toLowerCase().includes(`${filterBy}`)
     });
   }
 
