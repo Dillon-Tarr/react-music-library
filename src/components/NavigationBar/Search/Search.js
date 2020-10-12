@@ -16,7 +16,7 @@ export default class Search extends Component {
   render() {
     return (
       <div id="search">
-        <input id="search-box" type="text" placeholder="Type here to search" value={this.state.value} onChange={this.handleChange}></input>&nbsp;
+        <input id="search-box" type="text" placeholder="Type here to search" onChange={this.handleChange}></input>&nbsp;
         <button id="search-button" onClick={() => {this.props.initiateSearch(this.state.searchBoxValue)}}>Search</button>
       </div>
     )
